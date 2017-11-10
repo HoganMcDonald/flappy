@@ -1,12 +1,12 @@
 let bird, pipes;
 
 let counter = 0;
-let rate = 100;
+let rate = 80;
 
 function setup() {
   createCanvas(1000, 700);
   bird = new Bird();
-  pipes = new Pipes();
+  pipes = [];
 }
 
 function draw() {
@@ -20,7 +20,16 @@ function draw() {
   counter++;
   if (counter === rate) {
     counter = 0;
-    pipes.new();
+    pipes.push(new Pipe);
+  }
+  for (var i = pipes.length -1; i >= 0; i--) {
+    if (i === 0) {
+      if (pipes[i].x === 0) {
+        pipes.shift();
+      }
+    }
+    pipes[i].update();
+    pipes[i].render();
   }
 }
 
