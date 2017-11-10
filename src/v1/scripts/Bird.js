@@ -7,15 +7,11 @@ class Bird {
 
     this.speed = 0;
     this.acceleration = 0.6;
-    console.log(this.y, this.speed, this.acceleration);
   }
 
   flap() {
     this.speed += -15;
   }
-
-
-
 
   render() {
     fill(this.color);
